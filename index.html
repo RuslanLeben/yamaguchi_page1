@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>1 макет</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="interactive">
+			<div class="table">
+				<img src="table_bottom.png" id="table_bottom">
+				<img src="table_top.png" id="table_top">
+				<div class="buttons btn_up">Вверх</div>
+				<div class="buttons btn_down">Вниз</div>
+			</div>
+		</div>
+		<div class="header">
+			<span>
+				Эргономика — ключ к успеху современного человека
+			</span>
+		</div>
+		<div class="descript_one">
+			<span>
+				Cтильная столешница , выполненной из экологически безопасного материала (ДСП), и усиленной стальной рамы не составит труда разместить на поверхности инновационного стола большое количество крупногабаритной техники: стол выдерживает нагрузку до 80 кг. 
+			</span>
+		</div>
+		<div class="descript_two">
+			<span>
+				Также столешница, обладающая меламиновым покрытием, хорошо переносит механические воздействия (царапины или удары), при контакте с водой не разрушается, устойчиво переносит бытовые химические вещества и не выгорает под воздействием ультрафиолета.
+			</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		const max = 50;
+		const min = -20;
+		const move = 10
+		let current = 0
+
+		const button_up = document.querySelector('.btn_up')
+		const button_down = document.querySelector('.btn_down')
+		const table_top = document.getElementById('table_top')
+		const table_bottom = document.getElementById('table_bottom')
+
+		button_up.addEventListener('click', ()=>
+		{
+			current -= current >= min+move ? move : 0
+			table_top.style.transform = `translate(-50%,-50%) translateY(${current}px)`
+		})
+
+		button_down.addEventListener('click', ()=>
+		{
+			current += current<= max-move ? move : 0
+			table_top.style.transform = `translate(-50%,-50%) translateY(${current}px)`
+		})
+
+	</script>
+</body>
+</html>
